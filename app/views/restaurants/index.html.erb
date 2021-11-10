@@ -1,3 +1,5 @@
+<p id="notice"><%= notice %></p>
+
 <h1>London's Restaurants 🍣🥂</h1>
 
 <table>
@@ -13,9 +15,10 @@
   <tbody>
     <% @restaurants.each do |restaurant| %>
       <tr>
-        <td><%= restaurant.name %></td>
+        <td><%= link_to restaurant.name, restaurant_path(restaurant) %></td>
         <td><%= restaurant.address %></td>
         <td><%= restaurant.category.capitalize %></td>
+        <td><%= link_to 'Show', restaurant %></td>
       </tr>
     <% end %>
   </tbody>
@@ -23,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Restaurant', new_restaurant_path %>
+<%= link_to 'New Restaurant', new_restaurant_path, class: 'btn btn-info' %>
